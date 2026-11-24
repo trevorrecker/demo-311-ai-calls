@@ -28,7 +28,7 @@ the saved Call's `photo` placeholder, or an empty list when there is no photo.
 | Folder | What's in it |
 | --- | --- |
 | [workers/request-desk](workers/request-desk) | Worker, Dockerfile, Compose, two pages and tests |
-| [ai-calls](ai-calls) | Assessment, optional Experimental prompt revision, Insights, and the walkthrough's structured-output Call |
+| [ai-calls](ai-calls) | The Assessment and Insights Calls used by the Worker |
 | [ai-routes](ai-routes) | A Haiku 5.5 route template, with a placeholder for a Connection you already own |
 | [object-types](object-types) | The optional NYC 311 Service Request definition |
 
@@ -56,10 +56,8 @@ exists, inspect and reuse it where appropriate rather than overwriting it.
 
 2. Create the two AI Calls. Then use each Call's version controls in Console v2
    to point `stable` and `experimental` at versions of `demo-311-report`. Both may
-   start on the same version. To distinguish them, save
-   `ai-calls/versions/demo-311-report.experimental.json` as a new revision of the
-   existing Assessment and move only `experimental`. The Insights Call uses
-   its current version, not either label.
+   point to the same version. The Insights Call uses its current version, not
+   either label.
 
    ```sh
    jq -c . ai-calls/demo-311-report.json ai-calls/demo-311-insights.json |
@@ -78,19 +76,3 @@ exists, inspect and reuse it where appropriate rather than overwriting it.
    ctxl workers create -C "$CONFIG" demo-311-request-desk --size small \
      --compose workers/request-desk/compose.yaml --min-replicas 1 --max-replicas 1
    ```
-
-### Optional: the structured-output walkthrough
-
-The web demo doesn't require an Object Type. To try the Call created during
-the walkthrough, install the 311 type if you don't already have it. Then create
-`trevor-demo`, reconstructed from the walkthrough. It shows a `history` message
-placeholder and a selected set of Object Type output fields. It is not used by
-either page.
-
-```sh
-jq -c . object-types/nyc-311-service-request.json | ctxl types add -C "$CONFIG"
-jq -c . ai-calls/trevor-demo.json | ctxl records add -C "$CONFIG" --type ai-call
-ctxl aicalls render -C "$CONFIG" trevor-demo --input-file ai-calls/inputs/trevor-demo.json
-```
-
-Swap `render` for `run` to make a real model call. Rendering doesn't invoke the model.
