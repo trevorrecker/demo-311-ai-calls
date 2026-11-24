@@ -32,10 +32,8 @@ the saved Call's `photo` placeholder, or an empty list when there is no photo.
 | [ai-routes](ai-routes) | A Haiku 5.5 route template, with a placeholder for a Connection you already own |
 | [object-types](object-types) | The optional NYC 311 Service Request definition |
 
-The Worker, Object Type and record definitions are separate so an Application
-manifest can reference them later. There is no `contextual.yaml`, exported
-Connection, tenant config, or dataset in this example. The included report and
-road image are synthetic.
+The sample report and photo are synthetic. No Connection credentials or tenant
+configuration are included.
 
 ## Run against your own Contextual tenant
 
