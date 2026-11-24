@@ -1,0 +1,16 @@
+{
+  "id": "demo-311-haiku-55",
+  "name": "311 Request Desk Haiku 5.5",
+  "maxRetries": 0,
+  "modelProviders": [
+    {
+      "providerConnectionId": "REPLACE_WITH_YOUR_CONNECTION_ID",
+      "model": "claude-haiku-5-5",
+      "providerOptions": {
+        "thinking": {
+          "type": "disabled"
+        }
+      }
+    }
+  ]
+}

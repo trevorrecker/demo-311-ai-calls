@@ -1,0 +1,17 @@
+{
+  "name": "request-desk",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "start": "node src/worker.mjs",
+    "test": "node --test test/*.test.mjs",
+    "demo": "node test/demo.mjs"
+  },
+  "dependencies": {
+    "@contextual-io/sdk": "0.1.1"
+  }
+}

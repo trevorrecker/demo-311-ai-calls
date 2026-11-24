@@ -1,0 +1,11 @@
+x-contextual:
+  version: 1
+services:
+  web:
+    build:
+      context: ../..
+      dockerfile: workers/request-desk/Dockerfile
+    x-contextual:
+      public: 8080
+      # The organization's Agent OAuth client, and platform addresses including the AI Gateway's.
+      features: [native-object-api, platform-services]

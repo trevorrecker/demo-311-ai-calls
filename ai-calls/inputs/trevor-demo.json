@@ -1,0 +1,12 @@
+{
+  "variables": {
+    "name": "Alex",
+    "history": [
+      {
+        "role": "user",
+        "content": "This is a fictional service request."
+      }
+    ],
+    "message": "Request EXAMPLE-311, submitted 2026-11-19T17:00:00Z. Agency: DOT. Problem: street defect. Detail: a water-filled pothole in a travel lane. City: Queens."
+  }
+}

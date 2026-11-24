@@ -1,0 +1,179 @@
+{
+  "id": "nyc-311-service-request",
+  "type": "custom",
+  "name": "NYC 311 Service Request",
+  "pluralName": "NYC 311 Service Requests",
+  "description": "A public NYC 311 service request prepared for structured and semantic search demos.",
+  "display": "default",
+  "defaultListStyle": "table",
+  "objectType": "internal",
+  "features": {
+    "auditTrail": {
+      "enabled": false
+    },
+    "version": {
+      "enabled": false
+    }
+  },
+  "schema": {
+    "$comment": "A search-friendly projection of NYC Open Data 311 service requests.",
+    "primaryKey": "requestId",
+    "type": "object",
+    "properties": {
+      "requestId": {
+        "type": "string",
+        "minLength": 1,
+        "description": "The stable Unique Key assigned by NYC Open Data."
+      },
+      "submittedAt": {
+        "type": "string",
+        "minLength": 1,
+        "description": "The NYC local date and time when the request was submitted, as supplied by the source dataset."
+      },
+      "closedAt": {
+        "type": "string",
+        "minLength": 1,
+        "description": "The NYC local date and time when the request was closed, as supplied by the source dataset."
+      },
+      "agency": {
+        "type": "string",
+        "minLength": 1,
+        "description": "The abbreviation of the city agency responsible for the request."
+      },
+      "agencyName": {
+        "type": "string",
+        "minLength": 1,
+        "description": "The full name of the city agency responsible for the request."
+      },
+      "problem": {
+        "type": "string",
+        "minLength": 1,
+        "description": "The broad problem or complaint category."
+      },
+      "problemDetail": {
+        "type": "string",
+        "minLength": 1,
+        "description": "The primary detail describing the problem."
+      },
+      "additionalDetails": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Additional detail supplied for the problem."
+      },
+      "locationType": {
+        "type": "string",
+        "minLength": 1,
+        "description": "The kind of place where the issue occurred."
+      },
+      "status": {
+        "type": "string",
+        "minLength": 1,
+        "description": "The current request status in the source dataset."
+      },
+      "dueAt": {
+        "type": "string",
+        "minLength": 1,
+        "description": "The NYC local due date and time, as supplied by the source dataset."
+      },
+      "resolutionDescription": {
+        "type": "string",
+        "minLength": 1,
+        "description": "The agency's public explanation of the resolution or next action."
+      },
+      "resolutionUpdatedAt": {
+        "type": "string",
+        "minLength": 1,
+        "description": "The NYC local date and time when the resolution was last updated, as supplied by the source dataset."
+      },
+      "channel": {
+        "type": "string",
+        "minLength": 1,
+        "description": "The channel used to submit the request."
+      },
+      "incidentAddress": {
+        "type": "string",
+        "minLength": 1,
+        "description": "The street address associated with the incident."
+      },
+      "streetName": {
+        "type": "string",
+        "minLength": 1,
+        "description": "The street associated with the incident."
+      },
+      "crossStreet1": {
+        "type": "string",
+        "minLength": 1,
+        "description": "The first nearby cross street."
+      },
+      "crossStreet2": {
+        "type": "string",
+        "minLength": 1,
+        "description": "The second nearby cross street."
+      },
+      "intersectionStreet1": {
+        "type": "string",
+        "minLength": 1,
+        "description": "The first street when the incident location is an intersection."
+      },
+      "intersectionStreet2": {
+        "type": "string",
+        "minLength": 1,
+        "description": "The second street when the incident location is an intersection."
+      },
+      "landmark": {
+        "type": "string",
+        "minLength": 1,
+        "description": "A landmark associated with the incident location."
+      },
+      "zipCode": {
+        "type": "string",
+        "minLength": 1,
+        "description": "The incident ZIP code."
+      },
+      "city": {
+        "type": "string",
+        "minLength": 1,
+        "description": "The city or locality associated with the incident."
+      },
+      "borough": {
+        "type": "string",
+        "minLength": 1,
+        "description": "The NYC borough associated with the incident."
+      },
+      "communityBoard": {
+        "type": "string",
+        "minLength": 1,
+        "description": "The community board associated with the incident."
+      },
+      "councilDistrict": {
+        "type": "string",
+        "minLength": 1,
+        "description": "The city council district associated with the incident."
+      },
+      "policePrecinct": {
+        "type": "string",
+        "minLength": 1,
+        "description": "The police precinct associated with the incident."
+      },
+      "latitude": {
+        "type": "number",
+        "minimum": -90,
+        "maximum": 90,
+        "description": "The incident latitude in decimal degrees."
+      },
+      "longitude": {
+        "type": "number",
+        "minimum": -180,
+        "maximum": 180,
+        "description": "The incident longitude in decimal degrees."
+      }
+    },
+    "required": [
+      "requestId",
+      "submittedAt",
+      "agency",
+      "problem",
+      "problemDetail"
+    ]
+  }
+}
